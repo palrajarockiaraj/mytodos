@@ -8,8 +8,16 @@
  * Controller of the mytodosApp
  */
 angular.module('mytodosApp')
-  .controller('MainCtrl', ['$scope', function($scope){
-  	$scope.todos = ['Item 1','Item 2','Item 3','Item 4','Item 5'];
+  .controller('MainCtrl', ['$scope','localStorageService', function($scope, localStorageService){
+  	//$scope.todos = ['Item 1','Item 2','Item 3','Item 4','Item 5'];
+
+    var todosInStore = localStorageService.get('todos');
+
+    $scope.todos = todosInStore || [];
+
+    $scope.$watch('todos', function () {
+      localStorageService.set('todos', $scope.todos);
+    }, true);
 
   	// Add todo
   	$scope.addTodo = function () {
