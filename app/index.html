@@ -54,9 +54,9 @@
     <div ng-view=""></div>
     </div>
 
-    <div class="footer">
+    <div class="footer" ng-controller="FooterCtrl">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Copyright &copy; <span ng-model="year">{{year}}</span> by My Company. All Rights Reserved.</p>
       </div>
     </div>
 
@@ -96,6 +96,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/footer.js"></script>
         <!-- endbuild -->
 </body>
 </html>
